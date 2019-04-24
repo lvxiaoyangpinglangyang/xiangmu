@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.qf.j1808.AppTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.114 s <<< FAILURE! - in com.qf.j1808.AppTest
+testShiroFirst(com.qf.j1808.AppTest)  Time elapsed: 0.087 s  <<< ERROR!
+org.apache.shiro.authc.IncorrectCredentialsException: Submitted credentials for token [org.apache.shiro.authc.UsernamePasswordToken - zhangsan, rememberMe=false] did not match the expected credentials.
+	at com.qf.j1808.AppTest.testShiroFirst(AppTest.java:31)
+

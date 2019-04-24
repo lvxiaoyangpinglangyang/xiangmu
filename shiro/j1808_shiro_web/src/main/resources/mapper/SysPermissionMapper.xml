@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qf.j1808.mapper.SysPermissionMapper">
+<select id="findPermissionByName" parameterType="com.qf.j1808.pojo.SysPermission">
+ SELECT
+  p.permission_id permissionId,
+  p.per_name permissionName,
+  p.menu_name menuName,
+  p.menu_type menuLevel,
+  p.menu_url menuUrl,
+  p.if_vilid ifValid,
+  p.parent_code parentCode,
+  p.menu_code menuCode
+FROM
+  tb_sys_user  u,
+  tb_sys_role  r,
+  tb_sys_permission p,
+  tb_user_role  ur,
+  tb_role_permission rp
+
+WHERE
+  u.userid = ur.user_id
+  and ur.role_id = r.role_id
+  and r.role_id = rp.role_id
+  and rp.permission_id = p.permission_id
+  and u.loginName = #{username}
+</select>
+</mapper>
